@@ -59,60 +59,60 @@ body {
     & > h1 {
         width: 100%;
     }
+}
 
-    & > div {
+#tabContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+    /* Selectors */
+    & > #tabBar {
         width: 100%;
+        height: 45px;
+
         display: flex;
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
+
+        align-items: end;
+        justify-content: end;
+
+        gap: 1px;
+
 
         /* Selectors */
-        & > #tabBar {
-            width: 100%;
-            height: 45px;
+        & > button {
+            flex-grow: 1;
+            background-color: var(--tab-color);
 
-            display: flex;
-            flex-flow: row nowrap;
-
-            align-items: end;
-            justify-content: end;
-
-            gap: 1px;
+            border: none;
+            border-radius: 10px 10px 0px 0px;
 
 
             /* Selectors */
-            & > button {
-                flex-grow: 1;
-                background-color: var(--tab-color);
-
-                border: none;
-                border-radius: 10px 10px 0px 0px;
-
-
-                /* Selectors */
-                &.active {
-                    background-color: var(--active-tab-color);
-                    height: 100%;
-                }
+            &[selected] {
+                background-color: var(--active-tab-color);
+                height: 100%;
             }
         }
+    }
 
-        & > #tabContainer {
-            width: 100%;
+    & > #tabDivContainer {
+        width: 100%;
 
-            flex-grow: 1;
+        flex-grow: 1;
 
-            background-color: var(--active-tab-color);
+        background-color: var(--active-tab-color);
+
+
+        /* Selectors */
+        & > div {
+            display: none;
 
 
             /* Selectors */
-            & > div {
-                display: none;
-
-
-                /* Selectors */
-                &.active {
-                    display: block;
-                }
+            &[selected] {
+                display: block;
             }
         }
     }
