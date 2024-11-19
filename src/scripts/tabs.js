@@ -5,7 +5,7 @@ const handleTabContainer = (container=new HTMLDivElement) => {
     let selectedTab = null;
 
     const setActiveButton = (tabName) => {
-        tabBar.querySelector("button[selected]").toggleAttribute("selected", false);
+        tabBar.querySelector("button[selected]")?.toggleAttribute?.("selected", false);
 
         const button = tabBar.querySelector(`button[name=${tabName}]`);
         if (button) {
@@ -14,7 +14,7 @@ const handleTabContainer = (container=new HTMLDivElement) => {
     }
 
     const setActiveTab = (tabName) => {
-        divContainer.querySelector("div[selected]").toggleAttribute("selected", false);
+        divContainer.querySelector("div[selected]")?.toggleAttribute?.("selected", false);
 
         const tab = divContainer.querySelector(`div[name=${tabName}]`);
         if (tab) {
@@ -34,7 +34,15 @@ const handleTabContainer = (container=new HTMLDivElement) => {
         const button = tabButtons.item(i);
 
         button.onclick = () => {
-            selectTab(button.getAttribute("name"));
+            const name = button.getAttribute("name");
+
+            switch (name) {
+                case "$d":
+                    selectTab(null);
+                    break;
+                default:
+                    selectTab(name);
+            }
         }
     }
 
