@@ -1,0 +1,94 @@
+/* Global */
+
+/* Properties */
+@property --bg-color1 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#fff, #222);
+}
+
+@property --bg-color2 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#eee, #333);
+}
+
+@property --bg-color3 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#ddd, #444);
+}
+
+@property --bg-color4 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#ccc, #555);
+}
+
+/* Selectors */
+body {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg-color1);
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg-color1);
+
+    /* Selectors */
+    & > article {
+        width: 300px;
+        height: 300px;
+        background-color: var(--bg-color2);
+        border-radius: 7px;
+    }
+}
+
+/* Tabs */
+
+#tabs {
+    display: flex;
+    flex-flow: column nowrap;
+
+
+    /* Selectors */
+    & > h1 {
+        width: 100%;
+    }
+
+    & > div {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+
+        /* Selectors */
+        & > #tabBar {
+            width: 100%;
+            height: 45px;
+
+            display: flex;
+            flex-flow: row nowrap;
+
+            align-items: end;
+            justify-content: end;
+
+            gap: 1px;
+
+            & > button {
+                flex-grow: 1;
+                background-color: var(--bg-color3);
+
+                border-radius: 10px 10px 0px 0px;
+
+                &.active {
+                    background-color: var(--bg-color4);
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
