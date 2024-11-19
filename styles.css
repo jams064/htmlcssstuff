@@ -101,7 +101,7 @@ body {
 
             flex-grow: 1;
 
-            background-color: red;
+            background-color: var(--active-tab-color);
 
 
             /* Selectors */
