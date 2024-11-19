@@ -101,14 +101,14 @@ body {
 
             flex-grow: 1;
 
-            background-color: var(--active-tab-color);
+            background-color: red;
 
 
             /* Selectors */
             & > div {
                 display: none;
 
-                
+
                 /* Selectors */
                 &.active {
                     display: block;
