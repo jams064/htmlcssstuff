@@ -13,18 +13,6 @@
     initial-value: light-dark(#eee, #333);
 }
 
-@property --bg-color3 {
-    syntax: '<color>';
-    inherits: true;
-    initial-value: light-dark(#ddd, #444);
-}
-
-@property --bg-color4 {
-    syntax: '<color>';
-    inherits: true;
-    initial-value: light-dark(#ccc, #555);
-}
-
 /* Selectors */
 body {
     width: 100%;
@@ -50,10 +38,22 @@ body {
 
 /* Tabs */
 
+@property --tab-color {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#ddd, #444);
+}
+
+@property --active-tab-color {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: light-dark(#ccc, #555);
+}
+
 #tabs {
     display: flex;
     flex-flow: column nowrap;
-
+    padding: 10px;
 
     /* Selectors */
     & > h1 {
@@ -78,15 +78,40 @@ body {
 
             gap: 1px;
 
+
+            /* Selectors */
             & > button {
                 flex-grow: 1;
-                background-color: var(--bg-color3);
+                background-color: var(--tab-color);
 
+                border: none;
                 border-radius: 10px 10px 0px 0px;
 
+
+                /* Selectors */
                 &.active {
-                    background-color: var(--bg-color4);
+                    background-color: var(--active-tab-color);
                     height: 100%;
+                }
+            }
+        }
+
+        & > #tabContainer {
+            width: 100%;
+
+            flex-grow: 1;
+
+            background-color: var(--active-tab-color);
+
+
+            /* Selectors */
+            & > div {
+                display: none;
+
+                
+                /* Selectors */
+                &.active {
+                    display: block;
                 }
             }
         }
